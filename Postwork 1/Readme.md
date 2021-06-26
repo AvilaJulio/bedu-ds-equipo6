@@ -18,7 +18,7 @@
 
 
 
-##PROCEDIMIENTO
+## PROCEDIMIENTO
 
 ```R
 # Paso 0 - Cargar las librerías que ocuparemos
