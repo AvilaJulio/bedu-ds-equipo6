@@ -11,4 +11,7 @@ Post works de evidencia para la Fase 2 del curso de Data Science de **Bedu**, Pr
  - Marco Antonio Hernandez Peñafort
 
 ## Postworks
-- [Postwork 1](https://github.com/beduExpert/Programacion-R-Santander-2021/tree/master/Sesion-03/Ejemplo-01)
+- [Postwork 1](https://github.com/AvilaJulio/bedu-ds-equipo6/tree/main/Postwork%201)
+- [Postwork 2](https://github.com/AvilaJulio/bedu-ds-equipo6/tree/main/Postwork%202)
+- [Postwork 3](https://github.com/AvilaJulio/bedu-ds-equipo6/tree/main/Postwork%203)
+- [Postwork 4](https://github.com/AvilaJulio/bedu-ds-equipo6/tree/main/Postwork%204)
