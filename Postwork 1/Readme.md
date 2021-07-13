@@ -86,3 +86,25 @@ f <- transform(d, pconj=round(d$frecuencia/e, 3))
 # Paso 6.3 - Observando los resultados
 plot(f)
 ```
+## RESULTADOS
+La probabilidad (marginal) de que el equipo que juega en casa anote x goles (x = 0, 1, 2, ...)
+
+![](1.jpg)
+
+La probabilidad (marginal) de que el equipo que juega como visitante anote y goles (y = 0, 1, 2, ...)
+
+![](2.jpg)
+
+La probabilidad (conjunta) de que el equipo que juega en casa anote x goles y el equipo que juega como visitante anote y goles (x = 0, 1, 2, ..., y = 0, 1, 2, ...)
+
+![](3.jpg)
+
+## INTERPRETACIÓN DE LOS RESULTADOS/HALLAZGOS
+
+Con estas primeras probabilidades obtenidas, podemos inferir que estos datos confirman lo que la mayoría de nosotros suponemos al comienzo de un partido de fútbol: 
+- Que los equipos de fútbol, en un partido promedio, anotan entre **0 y 2 goles**. 
+- **Es raro** (más no imposible) ver un partido donde cualquier equipo meta **más de 3 goles**.
+- **La mayoría** de partidos acaba ya sea en **empate**, o con un equipo ganando por **uno o dos goles**.
+- **Es raro** (más no imposible), que algún equipo gane por “**goliza**” (con una diferencia de goles mayor o igual a 3).
+
+Un hallazgo interesante que se puede observar muy bien en el heatmap es que, contrario a lo que uno pudiese pensar, para los datos analizados, y suponiendo que estos representan fielmente el caso de todos los partidos: **a los equipos que juegan como visitantes les va mejor que a los que juegan como locales**.
