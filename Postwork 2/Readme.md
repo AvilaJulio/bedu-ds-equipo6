@@ -58,3 +58,10 @@ write.csv(datos,"C:\\Users\\black\\Desktop\\Postwork Equipo 6\\Repositorio\\LaLi
 
 DATA <- read.csv("LaLiga2017-2020.csv")
 ```
+
+## Resultados
+
+Un solo dataframe unificado con 1140 filas y 6 columnas:
+
+![](1.jpg)
+
