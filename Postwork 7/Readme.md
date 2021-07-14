@@ -22,3 +22,9 @@ Notas para los datos de soccer: https://www.football-data.co.uk/notes.txt
 
 
 ## PROCEDIMIENTO
+
+
+##RESULTADOS
+
+
+## INTERPRETACIÓN DE LOS RESULTADOS/HALLAZGOS
