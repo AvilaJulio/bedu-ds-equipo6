@@ -15,3 +15,4 @@ Post works de evidencia para la Fase 2 del curso de Data Science de **Bedu**, Pr
 - [Postwork 2](https://github.com/AvilaJulio/bedu-ds-equipo6/tree/main/Postwork%202)
 - [Postworks 3 y 4](https://github.com/AvilaJulio/bedu-ds-equipo6/tree/main/Postwork%203%20y%204)
 - [Postwork 6](https://github.com/AvilaJulio/bedu-ds-equipo6/tree/main/Postwork%206)
+- [Postwork 7](https://github.com/AvilaJulio/bedu-ds-equipo6/tree/main/Postwork%207)
