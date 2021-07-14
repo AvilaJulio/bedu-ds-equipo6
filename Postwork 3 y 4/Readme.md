@@ -194,4 +194,4 @@ ggplot() +
 ## INTERPRETACIÓN DE LOS RESULTADOS/HALLAZGOS
 La siguiente tabla (f2) muestra la columna de los cocientes calculados, la cual se añadió a la tabla f del Postwork 3.
 
-![](tabla f2)
+![](tabla f2.jpg)
