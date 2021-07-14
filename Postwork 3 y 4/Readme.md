@@ -191,3 +191,7 @@ ggplot() +
 ### dado que t=178.153 > cd=1.960 se rechaza la Ho, es decir, la media es distinta de 1. 
 
 ```
+## INTERPRETACIÓN DE LOS RESULTADOS/HALLAZGOS
+La siguiente tabla (f2) muestra la columna de los cocientes calculados, la cual se añadió a la tabla f del Postwork 3.
+
+![](tabla f2)
