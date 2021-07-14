@@ -2,9 +2,10 @@
 ### EQUIPO 6
 
 ## DESARROLLO
-- **Sección 01:** Importa los datos de soccer de la temporada 2019/2020 de la primera división de la liga española a R, los datos los puedes encontrar en el siguiente enlace: https://www.football-data.co.uk/spainm.php
-- **Sección 02:** Del data frame que resulta de importar los datos a R, extrae las columnas que contienen los números de goles anotados por los equipos que jugaron en casa (FTHG) y los goles anotados por los equipos que jugaron como visitante (FTAG).
-- **Sección 03:** Consulta cómo funciona la función table en R al ejecutar en la consola ```?table```
+- **Sección 01:** Agrega una nueva columa ```sumagoles``` que contenga la suma de goles por partido.
+- **Sección 02:** Obtén el promedio por mes de la suma de goles.
+- **Sección 03:** Crea la serie de tiempo del promedio por mes de la suma de goles hasta mayo de 2019.
+- **Sección 04:** Grafica la serie de tiempo.
 
 
 
