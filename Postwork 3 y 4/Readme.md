@@ -191,8 +191,29 @@ ggplot() +
 ### dado que t=178.153 > cd=1.960 se rechaza la Ho, es decir, la media es distinta de 1. 
 
 ```
+## RESULTADOS
+
+Los cocientes calculados se añadieron como una columna a la tabla f del Postwork 3 la cual contenía las probailidades conjuntas. Esta nueva tabla se nombró f2. 
+![ ](https://github.com/AvilaJulio/bedu-ds-equipo6/blob/main/Postwork%203%20y%204/tabla%20f2.jpg)
+
+La columna de cocientes de la tabla f2 fue nuestra muestra a partir de la cual se creó el boostrap, tomando 5000 submuestras con reposición. La Siguentes gráfica muestra la distribución de las medias de cada submuestra. La media poblacional calculada mediante este método es de *1.442547*, con una desviación estándar de *0.1524015*. 
+
+![ ](https://github.com/AvilaJulio/bedu-ds-equipo6/blob/main/Postwork%203%20y%204/distribucion%20boostrap.jpg)
+
 ## INTERPRETACIÓN DE LOS RESULTADOS/HALLAZGOS
-La siguiente tabla (f2) muestra la columna de los cocientes calculados, la cual se añadió a la tabla f del Postwork 3.
+### Interpretación
+El objetivo de hacer el boostrap es estimar parámetros poblacionales a partir de un remuestreo con reemplazo tomado a partir de una sola muestra. 
+
+En este caso, como resultado del boostrap determinamos la media poblacional  (*0.1524015*) y la desviación estándar (*0.1524015*). Estos resultados nos sugiere que la media de los cocientes no es 1, lo cual sugiere dependencia de las variables X (goles del equipo de casa) y Y (goles del equipo visitante).
+
+Al graficar la distribución boostrap de las medias de cada una de las 5000 muestras que se tomaron nos podemos dar cuenta de que se trata de una distribucón normal. 
+
+### Hallazgos
+El hecho de que la distribución boostrap muestre un comportamiento normal  nos permite hacer una pruéba de hipótesis t de student para corroborar que la media de los cocientes sea distinta de 1:
+
+  H0: mu0=1
+ h1: mu0<>1
+ 
+ El p-value de esta prueba de hipótesis (con nivel de confianza del 95%) fue de *0.007102695*. Al ser el p-value inferior al 5% (0.05), se rechaza la hipótesis nula y se corrobora una vez más que la media de los coientes no es igual a 1, asegurando la dependencia de las variables X y Y.
 
 
-![](https://github.com/AvilaJulio/bedu-ds-equipo6/blob/main/Postwork%203%20y%204/tabla%20f2.jpg)
