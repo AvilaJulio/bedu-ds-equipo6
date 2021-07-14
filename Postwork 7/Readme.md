@@ -28,4 +28,5 @@ Notas para los datos de soccer: https://www.football-data.co.uk/notes.txt
 ![](2.jpg)
 
 ## INTERPRETACIÓN DE LOS RESULTADOS/HALLAZGOS
-De acuerdo con los resultados podemos determinar que el Real Madrid ganó con 10 goles al Vallecano el 20 de diciembre de 2015. Considero que esta sesión 7 fue muy interesante porque logramos aprender como conectarnos a distintos tipos de bases de datos. 
+De acuerdo con los resultados podemos determinar que el Real Madrid ganó con 10 goles al Vallecano el 20 de diciembre de 2015. Realizamos la consulta utilizando la sintaxis de Mongodb, en la base de datos para conocer el numero de goles que metio el Real Madrid el 20 de diciembre de 2015.
+Considero que esta sesión 7 fue muy interesante porque logramos aprender como conectarnos a distintos tipos de bases de datos. 
