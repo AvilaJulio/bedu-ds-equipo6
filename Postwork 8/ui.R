@@ -34,21 +34,17 @@ shinyUI(fluidPage(
                 tabItems(
                     
                     # Histograma
-                    tabItem(tabName = "Dashboard",
+                    tabItem(tabName = "bars",
                             fluidRow(
-                                titlePanel("Histograma de las variables del data set mtcars"), 
-                                selectInput("x", "Seleccione el valor de X",
-                                            choices = names(mtcars)),
-                                
-                                selectInput("zz", "Selecciona la variable del grid", 
-                                            
-                                            choices = c("cyl", "vs", "gear", "carb")),
-                                box(plotOutput("plot1", height = 250)),
-                                
+                                titlePanel("Goles a favor y en contra por equipo"), 
+                                selectInput(
+                                    "x",
+                                    "Seleccione el valor de X",
+                                    choices = c("home.score", "away.score")
+                                ),
                                 box(
-                                    title = "Controls",
-                                    sliderInput("bins", "Number of observations:", 1, 30, 15)
-                                )
+                                    plotOutput("plot1", height = 600, width = 700)
+                                ),
                             )
                     ),
                     

@@ -15,21 +15,18 @@ shinyServer(function(input, output) {
     library(ggplot2)
     
     match_data <- read.csv("match.data.csv")
+    #ggplot(scores, aes(x=home.score)) + geom_bar() + facet_wrap(~ away.team)
     
     #Gráfico de Histograma
     output$plot1 <- renderPlot({
         
-        x <- mtcars[,input$x]
-        bin <- seq(min(x), max(x), length.out = input$bins + 1)
+        x <- match_data[,input$x]
         
-        ggplot(mtcars, aes(x, fill = mtcars[,input$zz])) + 
-            geom_histogram( breaks = bin) +
-            labs( xlim = c(0, max(x))) + 
+        ggplot(match_data, aes(x)) + 
+            geom_bar() +
             theme_light() + 
-            xlab(input$x) + ylab("Frecuencia") + 
-            facet_grid(input$zz)
-        
-        
+            xlab(input$x) + ylab("Goles") + 
+            facet_wrap(~away.team)
     })
     
     
