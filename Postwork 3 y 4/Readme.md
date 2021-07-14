@@ -195,4 +195,4 @@ ggplot() +
 La siguiente tabla (f2) muestra la columna de los cocientes calculados, la cual se añadió a la tabla f del Postwork 3.
 
 
-![](tabla f2.jpg)
+![](https://github.com/AvilaJulio/bedu-ds-equipo6/blob/main/Postwork%203%20y%204/tabla%20f2.jpg)
