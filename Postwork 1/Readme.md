@@ -107,4 +107,4 @@ Con estas primeras probabilidades obtenidas, podemos inferir que estos datos con
 - **La mayoría** de partidos acaba ya sea en **empate**, o con un equipo ganando por **uno o dos goles**.
 - **Es raro** (más no imposible), que algún equipo gane por “**goliza**” (con una diferencia de goles mayor o igual a 3).
 
-Un hallazgo interesante que se puede observar muy bien en el heatmap es que, contrario a lo que uno pudiese pensar, para los datos analizados, y suponiendo que estos representan fielmente el caso de todos los partidos: **a los equipos que juegan como visitantes les va mejor que a los que juegan como locales**.
+Un hallazgo novedoso que se puede observar muy bien en el heatmap es que, para los datos analizados, y suponiendo que estos representan fielmente el caso de todos los partidos: **a los equipos que juegan como locales les va mejor que a los que juegan como visitantes**.
