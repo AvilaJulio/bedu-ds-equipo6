@@ -110,5 +110,9 @@ f %>%
 ```
 
 ## RESULTADOS
+Ya obtenidos los datos necesarios, gráficamos la información obtenida:
+![](1.jpg)
+![](2.jpg)
+![](3.jpg)
 
 ## INTERPRETACIÓN DE LOS RESULTADOS
