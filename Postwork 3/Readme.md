@@ -119,3 +119,4 @@ Ya obtenidos los datos necesarios, gráficamos la información obtenida:
    ![](3.jpg)
 
 ## INTERPRETACIÓN DE LOS RESULTADOS
+
