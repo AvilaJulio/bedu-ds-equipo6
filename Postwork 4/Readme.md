@@ -125,9 +125,10 @@ install.packages()
 
 Los cocientes calculados se añadieron como una columna a la tabla f del Postwork 3 la cual contenía las probailidades conjuntas. Esta nueva tabla se nombró f2.
 
-![ ](https://github.com/AvilaJulio/bedu-ds-equipo6/blob/main/Postwork%203%20y%204/tabla%20f2.jpg)
+![ ](https://github.com/AvilaJulio/bedu-ds-equipo6/blob/main/Postwork%204/tabla%20f2.jpg)
 
 La columna de cocientes de la tabla f2 fue nuestra muestra a partir de la cual se creó el boostrap, tomando 5000 submuestras con reposición. La Siguentes gráfica muestra la distribución de las medias de cada submuestra. La media poblacional calculada mediante este método es de *1.442547*, con una desviación estándar de *0.1524015*. 
+
 
 ![ ](https://github.com/AvilaJulio/bedu-ds-equipo6/blob/main/Postwork%204/distribucion%20boostrap.jpg)
 
