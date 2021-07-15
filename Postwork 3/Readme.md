@@ -111,11 +111,11 @@ f %>%
 
 ## RESULTADOS
 Ya obtenidos los datos necesarios, gráficamos la información obtenida:
-   1. Un gráfico de barras para las probabilidades marginales estimadas del número de goles que anota el equipo de casa.
+   1. Gráfico de barras para las probabilidades marginales estimadas del número de goles que anota el equipo de casa.
    ![](1.jpg)
-   3. Un gráfico de barras para las probabilidades marginales estimadas del número de goles que anota el equipo visitante.
+   3. Gráfico de barras para las probabilidades marginales estimadas del número de goles que anota el equipo visitante.
    ![](2.jpg)
-   5. Un HeatMap para las probabilidades conjuntas estimadas de los números de goles que anotan el equipo de casa y el equipo visitante en un partido.
+   5. HeatMap para las probabilidades conjuntas estimadas de los números de goles que anotan el equipo de casa y el equipo visitante en un partido.
    ![](3.jpg)
 
 ## INTERPRETACIÓN DE LOS RESULTADOS
