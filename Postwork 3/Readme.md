@@ -119,4 +119,7 @@ Ya obtenidos los datos necesarios, gráficamos la información obtenida:
    ![](3.jpg)
 
 ## INTERPRETACIÓN DE LOS RESULTADOS
-De acuerdo con los resultados podemos observar que el número de probailidades mas altas se encuentra entre 0, 1 y 2 goles, por eso podemos ver las probabilidades conjuntas en el HeatMap con un colore de nivel mas alto en ese rango. Sin embargo, cuando juegan en casa es menos probable que tengan 0 goles que cuando son visitantes, quizás esto se deba por distintos factores como familiaridad del entorno, aspectos psicológicos, el apoyo del público, etc.  En general, de 1 en adelante son mas altas las probabilidades cuando juegan en casa.
+De acuerdo con los resultados obtenidos con los gráficos de barras podemos observar que el número de probabilidades más altas se encuentra entre 0, 1 y 2 goles, por eso podemos ver las probabilidades conjuntas en el HeatMap con un color de nivel más alto en ese rango. 
+Sin embargo, cuando juegan en casa es menos probable que tengan 0 goles que cuando son visitantes, quizás esto se deba por distintos factores como familiaridad del entorno, aspectos psicológicos, el apoyo del público, etc.  
+En general, de 1 en adelante son más altas las probabilidades cuando juegan en casa.
+
