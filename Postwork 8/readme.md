@@ -1,4 +1,4 @@
-#     POSTWORK - SESIÓN 01
+#     POSTWORK - SESIÓN 08
 ### EQUIPO 6
 
 ## INTEGRANTES
@@ -175,3 +175,5 @@ shinyUI(fluidPage(
 ````
 
 ##Resultados
+
+![Pestaña 1](https://github.com/AvilaJulio/bedu-ds-equipo6/blob/main/Postwork%208/screenshots/1.png)
