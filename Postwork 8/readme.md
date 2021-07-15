@@ -179,3 +179,8 @@ shinyUI(fluidPage(
 ![Pestaña 2](https://github.com/AvilaJulio/bedu-ds-equipo6/blob/main/Postwork%208/screenshots/2.png)
 ![Pestaña 3](https://github.com/AvilaJulio/bedu-ds-equipo6/blob/main/Postwork%208/screenshots/3.png)
 ![Pestaña 4](https://github.com/AvilaJulio/bedu-ds-equipo6/blob/main/Postwork%208/screenshots/4.png)
+
+## Interpretación de los resultados / Hallazgos
+
+- En el menú del sidebar de gráficas de barras, y recordando que el "faced wrap" está hecho con "away.team", podemos observar que hay una clara dominancia en la liga de los equipos Barcelona, Atlético de Madrid y Real Madrid. Se llega a esta conclusión porque se observa en los gráficos que en los partidos en los que juegan estos equipos, son aquellos en los que se meten más goles.
+- En el menú del sidebar de factores de ganancia, específicamente en el factor de ganancia máximo, podemos observar una gráfica donde se predicen las ganancias (o pérdidas) que tendríamos al apostar un cierto número de veces, y tomando en cuenta el capital que tenemos que invertir en dichas apuestas. Analizando el gráfico podemos obserar la tendencia, y aproximadamente a partir de 300 apuestas es cuando ya se observan ganancias mayores. Esto nos hace cuestionar si verdaderamente las apuestas son una buena manera de ganar dinero, y la respuesta es que depende: pues si apostamos poco dinero pocas veces, es menos probable que tengamos ganancias; pero si invertimos mucho dinero muchas veces, es cuando ya se tiene una margen de ganancias positivo y se vuelve un "negocio" que nos conviene. En la gráfica de factor de ganancias promedio, es donde vemos que al inicio se empieza perdiendo, y a partir de cierto número de apuestas, empiezan las ganancias.
