@@ -119,4 +119,4 @@ Ya obtenidos los datos necesarios, gráficamos la información obtenida:
    ![](3.jpg)
 
 ## INTERPRETACIÓN DE LOS RESULTADOS
-De acuerdo con los resultados podemos observar que el número de probailidades mas altas se encuentra entre 0, 1 y 2 goles. Sin embargo cuando juegan en casa es menos probable que tengan 0 goles que cuando son visitantes, quizás esto se deba por distintos factores como familiaridad del entorno, aspectos psicológicos, el apoyo del público, etc.
+De acuerdo con los resultados podemos observar que el número de probailidades mas altas se encuentra entre 0, 1 y 2 goles. Sin embargo, cuando juegan en casa es menos probable que tengan 0 goles que cuando son visitantes, quizás esto se deba por distintos factores como familiaridad del entorno, aspectos psicológicos, el apoyo del público, etc.  En general, de 1 en adelante son mas altas las probabilidades cuando juegan en casa.
