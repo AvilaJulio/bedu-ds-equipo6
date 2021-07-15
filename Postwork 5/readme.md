@@ -85,7 +85,6 @@ ranking <- rank.teams(scores=anotaciones, teams=equipos,
 predict(ranking, date = fecha[n])
 
 
-#########################################################################################
 
 ```
 ## RESULTADOS
