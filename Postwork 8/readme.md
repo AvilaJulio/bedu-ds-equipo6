@@ -31,7 +31,7 @@ Para este postwork genera un dashboard en un solo archivo `app.R`, para esto rea
 
 ## PROCEDIMIENTO
 
-#### `server.R`
+## `server.R`
 
 ```R
 library(shiny)
@@ -67,7 +67,7 @@ shinyServer(function(input, output) {
 })
 ```
 
-`ui.R`
+## `ui.R`
 ````R
 library(shiny)
 library(shinydashboard)
