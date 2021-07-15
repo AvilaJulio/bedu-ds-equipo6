@@ -94,7 +94,9 @@ El resultado del ranking de equipos (variable *ranking*) es el que se muestra a 
 ![ ](https://github.com/AvilaJulio/bedu-ds-equipo6/blob/main/Postwork%205/ranking%20de%20equipos.png)
 
 La predicción de las probabilidades de los resultados de los partidos jugados en la última fecha son:
+
 ![ ](https://github.com/AvilaJulio/bedu-ds-equipo6/blob/main/Postwork%205/predicciones.png)
+
 Donde 
 - HW: Home win (el equipo de casa gana)
 - AW: Away win (el equipo visitante gana)
@@ -106,7 +108,7 @@ El ranking de equipos tiene por objetivo calcular la fuerza de ataque y la fuerz
 
 El ranking muestra que el equipo con mayor fuerza combinada de ataque y defensa es el *Barcelona*, con un total de 1.51, por lo que es muy probable que gane si se tiene un juego entre *Barcelona* y cualquier otro equipo. Por el contrario, el equipo *Las Palmas* es el equipo con menor fuerza combinada de ataque y defensa, por lo que si este equipo juega con cualquier otro, es muy probable que pierda. 
 
-En cuanto a la predicición hecha a partir del rankig de equipos, se ve que de los 10 juegos jugados el 19/07/2020 únicamente 3 resultados resultaron acertados:
+En cuanto a la predicición hecha a partir del rankig de equipos, se ve que de los 10 juegos jugados el 19/07/2020 sólo 3 resultados resultaron acertados:
 - Alaves vs Barcelona, HW 9%, AW 75%, T 15%, pred score 0.7-2.5  actual: AW (0-5)
 - Villarreal vs Eibar, HW 45%, AW 30%, T 25%, pred score 1.5-1.2  actual: HW (4-0)
 - Granada vs Ath Bilbao, HW 40%, AW 31%, T 30%, pred score 1.2-1  actual: HW (4-0)
