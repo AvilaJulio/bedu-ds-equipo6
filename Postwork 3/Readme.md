@@ -22,6 +22,7 @@
 ## PROCEDIMIENTO
 
 ```R
+# POSTWORK 3
 ## cargando las librerias
 library(ggplot2)
 
@@ -94,7 +95,6 @@ far_visit %>%
   geom_text(aes(label = round(fr_visit, 3)), vjust=1.5, color="red")
 
 ## HeatMap para las probabilidades conjuntas
-
 
 f %>%
   ggplot() +
