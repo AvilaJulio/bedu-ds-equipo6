@@ -55,7 +55,7 @@ c5 <- mutate(c5, date = as.Date(date,"%d/%m/%Y"))
 lista5 <- list(a5, b5, c5)
 SmallData <- do.call(rbind, lista5)
 
-setwd("F:/Documents/10mo semestre/BECAS/bedu 1/CURSO/MÃDULO 2/SESIÃN 5")
+setwd("F:/Documents/10mo semestre/BECAS/bedu 1/CURSO/MÓDULO 2/SESIÓN 5")
 write.csv(SmallData, file = "soccer.csv", row.names = FALSE)
 
 # Instalando el paquete "fbRanks" e importando el archivo soccer.csv
@@ -101,7 +101,7 @@ Donde
 - T: Tie (empate)
 
 ## INTERPRETACIÓN DE LOS RESULTADOS/HALLAZGOS
-###Interpretación
+### Interpretación
 El ranking de equipos tiene por objetivo calcular la fuerza de ataque y la fuerza de la defensa de cada equipo para después, mediante la función *predict* , para predecir el resultado de los partidos jugados en la última fecha registrada en los datos. 
 
 El ranking muestra que el equipo con mayor fuerza combinada de ataque y defensa es el *Barcelona*, con un total de 1.51, por lo que es muy probable que gane si se tiene un juego entre *Barcelona* y cualquier otro equipo. Por el contrario, el equipo *Las Palmas* es el equipo con menor fuerza combinada de ataque y defensa, por lo que si este equipo juega con cualquier otro, es muy probable que pierda. 
@@ -110,7 +110,7 @@ En cuanto a la predicición hecha a partir del rankig de equipos, se ve que de l
 - Alaves vs Barcelona, HW 9%, AW 75%, T 15%, pred score 0.7-2.5  actual: AW (0-5)
 - Villarreal vs Eibar, HW 45%, AW 30%, T 25%, pred score 1.5-1.2  actual: HW (4-0)
 - Granada vs Ath Bilbao, HW 40%, AW 31%, T 30%, pred score 1.2-1  actual: HW (4-0)
-###Hallazgos
+### Hallazgos
 Las predicciones hechas se basaron en el valor del *total*  que obtuvo cada equipo. Por ejemplo, para la predicción del juego entre Alaves (que tuvo un *total=-0.23*) y Barcelona (que tuvo un *total=1.51*), la predicción favoreció al equipo con mayor valor de *total*, es decir, el Barcelona. Sin embargo, la confiabilidad de las prediciones hechas se pone en duda ya que únicamente el 30% de ellas fueron acertadas. 
 
 
