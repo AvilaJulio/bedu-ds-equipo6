@@ -129,7 +129,7 @@ Los cocientes calculados se añadieron como una columna a la tabla f del Postwor
 
 La columna de cocientes de la tabla f2 fue nuestra muestra a partir de la cual se creó el boostrap, tomando 5000 submuestras con reposición. La Siguentes gráfica muestra la distribución de las medias de cada submuestra. La media poblacional calculada mediante este método es de *1.442547*, con una desviación estándar de *0.1524015*. 
 
-![ ](https://github.com/AvilaJulio/bedu-ds-equipo6/blob/main/Postwork%203%20y%204/distribucion%20boostrap.jpg)
+![ ](https://github.com/AvilaJulio/bedu-ds-equipo6/blob/main/Postwork%204/distribucion%20boostrap.jpg)
 
 ## INTERPRETACIÓN DE LOS RESULTADOS/HALLAZGOS
 ### Interpretación
@@ -143,6 +143,6 @@ Al graficar la distribución boostrap de las medias de cada una de las 5000 mues
 El hecho de que la distribución boostrap muestre un comportamiento normal  nos permite hacer una pruéba de hipótesis t de student para corroborar que la media de los cocientes sea distinta de 1:
 
  - H0: mu0=1
- - h1: mu0<>1
+ - H1: mu0<>1
  
  El p-value de esta prueba de hipótesis (con nivel de confianza del 95%) fue de *0.007102695*. Al ser el p-value inferior al 5% (0.05), se rechaza la hipótesis nula y se corrobora una vez más que la media de los coientes no es igual a 1, asegurando la dependencia de las variables X y Y.
