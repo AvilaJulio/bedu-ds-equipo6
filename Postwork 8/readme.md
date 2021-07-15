@@ -174,6 +174,9 @@ shinyUI(fluidPage(
 )
 ````
 
-##Resultados
+## Resultados
 
 ![Pestaña 1](https://github.com/AvilaJulio/bedu-ds-equipo6/blob/main/Postwork%208/screenshots/1.png)
+![Pestaña 2](https://github.com/AvilaJulio/bedu-ds-equipo6/blob/main/Postwork%208/screenshots/2.png)
+![Pestaña 3](https://github.com/AvilaJulio/bedu-ds-equipo6/blob/main/Postwork%208/screenshots/3.png)
+![Pestaña 4](https://github.com/AvilaJulio/bedu-ds-equipo6/blob/main/Postwork%208/screenshots/4.png)
