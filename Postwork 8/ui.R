@@ -1,38 +1,21 @@
-#
-# This is the user-interface definition of a Shiny web application. You can
-# run the application by clicking 'Run App' above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    http://shiny.rstudio.com/
-#
-
 library(shiny)
 library(shinydashboard)
 library(shinythemes)
 
-# Define UI for application that draws a histogram
+
 shinyUI(fluidPage(
-        
         dashboardPage(
-            
             dashboardHeader(title = "PW 8 - Equipo 6"),
-            
             dashboardSidebar(
-                
                 sidebarMenu(
                     menuItem("Gráficos de barra", tabName = "bars", icon = icon("bar-chart")),
                     menuItem("Goles casa-visitante", tabName = "graph", icon = icon("area-chart")),
                     menuItem("Data Table", tabName = "data_table", icon = icon("table")),
                     menuItem("Factores de ganancia", tabName = "img", icon = icon("file-picture-o"))
                 )
-                
             ),
-            
             dashboardBody(
-                
                 tabItems(
-                    
                     # Histograma
                     tabItem(tabName = "bars",
                             fluidRow(
@@ -47,7 +30,6 @@ shinyUI(fluidPage(
                                 ),
                             )
                     ),
-                    
                     # PW 3
                     tabItem(tabName = "graph",
                             tabsetPanel(
