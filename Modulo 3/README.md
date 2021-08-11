@@ -1,6 +1,6 @@
 # Equipo 6 😎
 
-Post works de evidencia para la Fase 2 y 3 del curso de Data Science de **Bedu**
+Post works de evidencia para la Fase 3 del curso de Data Science de **Bedu**
 
 ## Integrantes:
  - Angélica Luna García
