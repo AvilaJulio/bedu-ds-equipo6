@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Event Click LatLng</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <style type="text/css">
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+
+      /* Optional: Makes the sample page fill the window. */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script>
+      
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand">Data Science - Equipo 6 BEDU</a>
+      <div>
+        <label for="files">Upload a CSV formatted file:</label>
+        <input type="file" id="uploadfile"  accept=".csv"/>
+        <button type="button" class="btn btn-warning" id="uploadconfirm">Subir</button>
+        <button type="button" class="btn btn-dark" id="mapear">Mapear</button>
+      </div>
+    </nav>
+  
+    <div id="map"></div>
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
+    <script src="papaparse.min.js"></script>
+    <script>
+        
+        var longitud = [19.42847];
+        var latitud = [-99.12766];
+        var delito = [""];
+
+        const uploadconfirm = document.getElementById('uploadconfirm').
+          addEventListener('click', () =>{
+            Papa.parse(document.getElementById('uploadfile').files[0],{
+              download: true,
+              header:true,
+              skipEmptyLines: true,
+              complete: function(results){
+                longitud = [];
+                latitud = [];
+                delito = [];
+                console.log(results)
+                for (var j=0; j<results.data.length; j++) {
+                  longitud.push(parseFloat(results.data[j].longitud)); 
+                  latitud.push(parseFloat(results.data[j].latitud));
+                  delito.push(results.data[j].categoria_delito);
+                }
+                console.log('Listo!')
+              }
+            });
+        })
+      
+        "use strict";
+        var e = {
+            d: (o, t) => {
+              for (var n in t)
+                e.o(t, n) &&
+                  !e.o(o, n) &&
+                  Object.defineProperty(o, n, { enumerable: !0, get: t[n] });
+            },
+            o: (e, o) => Object.prototype.hasOwnProperty.call(e, o),
+            r: (e) => {
+              "undefined" != typeof Symbol &&
+                Symbol.toStringTag &&
+                Object.defineProperty(e, Symbol.toStringTag, {
+                  value: "Module",
+                }),
+                Object.defineProperty(e, "__esModule", { value: !0 });
+            },
+          },
+          o = {};
+          
+        function t() {
+          const e = { lat: longitud[0], lng: latitud[0] };
+
+          const  o = new google.maps.Map(document.getElementById("map"), {
+              zoom: 4,
+              center: e,
+          });
+
+          let t = new google.maps.InfoWindow({
+            content: delito[0],
+            position: e,
+          });
+
+          t.open(o);
+          document.getElementById('mapear').addEventListener("click", () => {
+              t.close();
+              for (var k=0; k<delito.length; k++) {
+                f = { lat: latitud[k], lng: longitud[k] };
+                t = new google.maps.InfoWindow({ 
+                  position: f,
+                  content: delito[k]
+                });
+                t.open(o);
+              }
+              console.log('Listo!')
+          });
+        }
+
+        e.r(o), e.d(o, { initMap: () => t });
+        var n = window;
+        for (var l in o) n[l] = o[l];
+          o.__esModule && Object.defineProperty(n, "__esModule", { value: !0 });
+      
+    </script>
+  </body>
+</html>
