@@ -47,3 +47,119 @@ La colección de datos se obtuvo del Portal de datos abietos del Gobierno de la 
 
 Esta base de datos contiene la información actualizada de las carpetas de investigación de la Fiscalía General de Justicia (FGJ) de la Ciudad de México a partir de enero de 2016. Las variables que contiene esta base son Carpetas de investigación de delitos a nivel de calle de la FGJ por Fiscalía, Agencia, Unidad de Investigación, fecha de apertura de la carpeta de investigación, delito, categoría de delito, calle, colonia, alcaldía, coordenadas, mes y año. Esta información se actualiza mensualmente.
 
+## **4. Análisis exploratorio de datos**
+
+### 4.1 Convertir el archivo CVS a un DataFrame de pandas
+```python
+# Realizamos la importación de la librería pandas:
+import pandas as pd
+
+# Leemos el archivo csv y consultamos el tipo de archivo generado:
+df = pd.read_csv('https://archivo.datos.cdmx.gob.mx/fiscalia-general-de-justicia/carpetas-de-investigacion-fgj-de-la-ciudad-de-mexico/carpetas_completa_junio_2021.csv', sep=',')
+type(df)
+
+```
+### 4.2 Análisis exploratorio
+```python
+# Consultamos las dimensiones de nuestro 'df':
+df.shape
+
+# Consultamos las primeras 3 entradas del 'df':
+df.head(3)
+
+# Consultamos las últimas 3 entradas del 'df':
+df.tail(3)
+
+# Revisamos el tipo de datos de cada columna y si contienen NaN's:
+df.info()
+```
+img_1
+## **5. Limpieza de datos**
+
+Antes de verificar la existencia de NaN eliminamos las columnas que no aportan información reelevante a nuestros objtivos y filtramos los datos a partir del año en que existe mayor número de registros de delitos y contenplando únicamente las alcadías de la CDMX.
+
+### 5.1 Eliminando columnas
+```python
+# Eliminando 6 columnas que no serán parte del analisis:
+df_dropped = df.drop(columns=["unidad_investigacion", "agencia", "tempo", "competencia", "calle_hechos", "calle_hechos2"])
+df_dropped.info()
+```
+### 5.2 Filtrando los datos
+```python
+# Analizamos a  partir de qué año es pertinente filtrar los datos de acuerdo a la incidencia de delitos:
+df_dropped.groupby('ao_hechos')['categoria_delito'].count().tail(20)
+
+# Con base en lo anterior decidimos filtrar los datos a partir del 'ao_hechos'>=2016:
+df_filtrado_1=df_dropped.loc[df_dropped['ao_hechos']>=2016]
+print(df_filtrado_1.head(3))
+print(df_filtrado_1.info())
+
+# Contamos cuántas alcaldías están presentes en el df 'df_filtrado_1':
+df_filtrado_1['alcaldia_hechos'].unique()
+
+# Al notar que la columna 'alcaldia_hechos' contiene alcaldías de todo el país, filtramos únicamente aquellas que corresponden a la CDMX
+# (16 alcaldías):
+alcadias_cdmx = ['BENITO JUAREZ',
+  'IZTAPALAPA',
+  'CUAUHTEMOC',
+  'TLAHUAC',
+  'IZTACALCO',
+  'GUSTAVO A MADERO',
+  'MIGUEL HIDALGO',
+  'TLALPAN',
+  'ALVARO OBREGON',
+  'VENUSTIANO CARRANZA',
+  'AZCAPOTZALCO',
+  'CUAJIMALPA DE MORELOS',
+  'COYOACAN',
+  'XOCHIMILCO',
+  'LA MAGDALENA CONTRERAS',
+  'MILPA ALTA'
+ ]
+
+df_filtrado_2 = df_filtrado_1.loc[df_filtrado_1['alcaldia_hechos'].isin(alcadias_cdmx)]
+print(df_filtrado_2["alcaldia_hechos"].unique())
+print("\n")
+print(df_filtrado_2.info())
+```
+### 5.3 Eliminando los NaN 
+
+```python
+# Contamos cuántos NaN existen en cada columna:
+df_filtrado_2.isna().sum()
+
+# Ahora eliminamos las filas que contienen puros NaN (si las hay):
+df_sin_nan_1=df_filtrado_2.dropna(axis=0, how='all')
+df_sin_nan_1
+
+# Al ejecutar la  instrucción anterior no se eliminó ninguna fila, por lo que se asume que ninguna fila contenía puros NaN.
+
+# Ahora eliminamos los registros con NaN en las columnas de fecha_inicio y fiscalia, debido a su poca signficancia estadística:
+df_sin_nan_2 = df_sin_nan_1.loc[df_sin_nan_1['fiscalia'].notna()]
+df_sin_nan_3 = df_sin_nan_2.loc[df_sin_nan_2['fecha_inicio'].notna()]
+df_sin_nan_4 = df_sin_nan_3.loc[df_sin_nan_3["latitud"].notna()]
+df_sin_nan_5 = df_sin_nan_4.loc[df_sin_nan_4["longitud"].notna()]
+
+df_sin_nan_5.isna().sum()
+
+# Ahora remplazamos los NaN de la columna 'colonia_hechos' por la palabra Unknown para eliminar completamente los NaN:
+df_sin_nan_5["colonia_hechos"] = df_sin_nan_5["colonia_hechos"].fillna('Unknown')
+df_sin_nan_5.isna().sum()
+
+# En los casos en los que la latitud y longitud no existe se evaluará posteriormente la posibilidad de colocar la latitud y longitud de la alcadia de
+# acuerdo a datos del gobierno de la CDMX: https://datos.cdmx.gob.mx/dataset/bae265a8-d1f6-4614-b399-4184bc93e027/resource/e4a9b05f-c480-45fb-a62c-6d4e39c5180e/download/alcaldias.csv
+
+# lat_long_alcaldias = pd.read_csv("https://datos.cdmx.gob.mx/dataset/bae265a8-d1f6-4614-b399-4184bc93e027/resource/e4a9b05f-c480-45fb-a62c-6d4e39c5180e/download/alcaldias.csv")
+
+
+```
+### 5.4 Reseteando los índices
+```python
+# Reseteamos los indices, pues hemos eliminado algunas filas:
+df_indice_reseteado = df_sin_nan_5.reset_index(drop=True)
+print(df_indice_reseteado.shape)
+print('\n')
+print(df_indice_reseteado.head(3))
+print('\n')
+print(df_indice_reseteado.tail(3))
+```
