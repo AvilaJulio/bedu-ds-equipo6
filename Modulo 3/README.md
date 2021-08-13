@@ -12,7 +12,7 @@ Post works de evidencia para la Fase 3 del curso de Data Science de **Bedu**
 
 ## Postworks
 ## **1. Identificación del problema**
----
+
 ### MARCO TEÓRICO
 La violencia en nuestro país es un problema grave. Las 6 ciudades más violentas del mundo están en México (EL PAÍS, 2021). Durante el 2018 se cometieron 33 millones de delitos en todo el país, asociados a 24.7 millones de víctimas, lo que significa que uno de cada tres hogares (33.9%) fue objeto de algún ilícito dicho año (INEGI). 
 
@@ -31,7 +31,7 @@ Se eligió trabajar en este dataset por múltiples razones:
 -	Es un proyecto escalable, puesto que, el análisis que se haga de la CDMX, se puede replicar en otras ciudades del país. El proyecto, además, tiene mucho potencial para posteriormente generar gráficos, mapas y demás figuras visuales que nos permitan interpretar aún más a fondo los datos.
 
 ## **2. Planteamiento de preguntas**
----
+
 A través del análisis de la base de datos elegida, pretendemos dar respuesta a los siguientes cuestionamientos:
 
 - ¿Qué tipos de delitos se cometen con mayor frecuencia?
@@ -42,7 +42,7 @@ A través del análisis de la base de datos elegida, pretendemos dar respuesta a
 - ¿Hay horarios en el día en el que se cometen mayor número de algún tipo de delito?
 
 ## 3. **Colección de datos**
----
+
 La colección de datos se obtuvo del Portal de datos abietos del Gobierno de la Ciudad de México. La colección se llama [*Carpetas de Investigación de la FGJ*](https://archivo.datos.cdmx.gob.mx/fiscalia-general-de-justicia/carpetas-de-investigacion-fgj-de-la-ciudad-de-mexico/carpetas_completa_junio_2021.csv "Carpetas de Investigación de la FGJ"), el cual puedes descargar en formato csv dando clic sobre el nombre. Si deseas descargarlo directamente de la página del Portal de datos abiertos, haz click [*aquí*](https://datos.cdmx.gob.mx/dataset/carpetas-de-investigacion-fgj-de-la-ciudad-de-mexico/resource/48fcb848-220c-4af0-839b-4fd8ac812c0f "aquí").
 
 Esta base de datos contiene la información actualizada de las carpetas de investigación de la Fiscalía General de Justicia (FGJ) de la Ciudad de México a partir de enero de 2016. Las variables que contiene esta base son Carpetas de investigación de delitos a nivel de calle de la FGJ por Fiscalía, Agencia, Unidad de Investigación, fecha de apertura de la carpeta de investigación, delito, categoría de delito, calle, colonia, alcaldía, coordenadas, mes y año. Esta información se actualiza mensualmente.
@@ -73,7 +73,7 @@ df.tail(3)
 # Revisamos el tipo de datos de cada columna y si contienen NaN's:
 df.info()
 ```
-img_1
+
 ## **5. Limpieza de datos**
 
 Antes de verificar la existencia de NaN eliminamos las columnas que no aportan información reelevante a nuestros objtivos y filtramos los datos a partir del año en que existe mayor número de registros de delitos y contenplando únicamente las alcadías de la CDMX.
@@ -166,7 +166,6 @@ print(df_indice_reseteado.tail(3))
 
 ## 6. Transformación de datos
 
----
 Aquí transformamos el tipo de dato de cada columna al tipo correcto de acuerdo a su contenido. Posteriormente, se hacen algunos filtros y consultas para responder a las preguntas planteadas. 
 
 ### 6.1 Corrigiendo el tipo de datos de las columnas
@@ -218,7 +217,7 @@ pregunta_1 = df_casting.groupby('categoria_delito').size()
 pregunta_1.sort_values(ascending=False)
 
 ```
-#### 6.2.2 *¿En qué colonias y alcaldías se comete el mayor número de delitos graves?*
+#### 6.2.2 *¿En qué alcaldías se comete el mayor número de delitos graves?*
 
 ```python
 # Primero consultamos qué delitos existen: 
@@ -345,8 +344,7 @@ df7.groupby('delito').size()
 
 ```
 
-#### 6.2.5 *¿Qué delitos han son más comúnes cada año?*
-
+#### 6.2.5 *¿Qué delitos son más comúnes cada año?*
 
 *   Violencia familiar
 *   Robo de objetos
