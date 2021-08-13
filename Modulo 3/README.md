@@ -163,3 +163,300 @@ print(df_indice_reseteado.head(3))
 print('\n')
 print(df_indice_reseteado.tail(3))
 ```
+
+## 6. Transformación de datos
+
+---
+Aquí transformamos el tipo de dato de cada columna al tipo correcto de acuerdo a su contenido. Posteriormente, se hacen algunos filtros y consultas para responder a las preguntas planteadas. 
+
+### 6.1 Corrigiendo el tipo de datos de las columnas
+```python
+# Consultamos el tipo de datos que contiene cada columna:
+df_indice_reseteado.dtypes
+
+# Hacemos casting del tipo de dato de las columnas. En el caso de las columnas con tipo de dato 'object' se convirtieron a 'str' para evitar 
+# tener varios tipos de datos en estas columnas:  
+df_indice_reseteado['ao_hechos'] = df_indice_reseteado['ao_hechos'].astype(int)
+df_indice_reseteado['mes_hechos'] = df_indice_reseteado['mes_hechos'].astype(str)
+df_indice_reseteado['mes_inicio'] = df_indice_reseteado['mes_inicio'].astype(str)
+df_indice_reseteado['delito'] = df_indice_reseteado['delito'].astype(str)
+df_indice_reseteado['fiscalia'] = df_indice_reseteado['fiscalia'].astype(str)
+df_indice_reseteado['categoria_delito'] = df_indice_reseteado['categoria_delito'].astype(str)
+df_indice_reseteado['colonia_hechos'] = df_indice_reseteado['colonia_hechos'].astype(str)
+df_indice_reseteado['alcaldia_hechos'] = df_indice_reseteado['alcaldia_hechos'].astype(str)
+
+diccionario_de_conversion = {
+    'fecha_hechos': 'datetime64[ns]',
+    'fecha_inicio': 'datetime64[ns]'
+}
+
+df_casting=df_indice_reseteado.astype(diccionario_de_conversion)
+
+print(df_casting.dtypes)
+print('\n')
+df_casting.head(3)
+```
+### 6.2 contestando las preguntas de investigación
+#### 6.2.1 *¿Qué tipos de delitos se comete con mayor frecuencia?*
+```python
+# Hacemos el conteo de la frecuencia de cada categoría de delito y ordenamos de manera ascendente: 
+pregunta_1 = df_casting.groupby('categoria_delito').size()
+pregunta_1.sort_values(ascending=False)
+
+# Con lo anterior nos dimos cuenta que existe una categoría llamada 'HECHO NO DELICTIVO', así que eliminamos las filas que la contengan, ya que solo nos
+# interesan los crimenes. Tabién reseteamos el índice una vez más:
+df_casting = df_casting.loc[df_casting['categoria_delito'] != 'HECHO NO DELICTIVO']
+df_casting.reset_index(inplace=True)
+df_casting.head(3)
+
+# Observamos que apareció una columna nueva 'index', por lo que la eliminamos:
+df_casting=df_casting.drop(columns='index')
+df_casting
+
+# Y ahora si respondemos a la pregunta 1:
+pregunta_1 = df_casting.groupby('categoria_delito').size()
+pregunta_1.sort_values(ascending=False)
+
+```
+#### 6.2.2 *¿En qué colonias y alcaldías se comete el mayor número de delitos graves?*
+
+```python
+# Primero consultamos qué delitos existen: 
+df_casting['categoria_delito'].unique().tolist()
+
+# Ahora filtramos los delitos que consideramos graves:
+delitos_graves = df_casting.loc[df_casting['categoria_delito'].isin(['LESIONES DOLOSAS POR DISPARO DE ARMA DE FUEGO','VIOLACIÓN', 'HOMICIDIO DOLOSO', 'SECUESTRO', 'FEMINICIDIO'])]
+
+# y agrupamos por alcaldía: 
+pregunta_2 = delitos_graves.groupby('alcaldia_hechos').size()
+pregunta_2
+
+
+```
+#### 6.2.3 *¿Qué tipos de delito han mostrado un crecimiento y decrecimiento en los últimos años?*
+
+
+1.   Separamos los delitos por año.
+2.   Determinamos el número de delitos por año.
+3.   Comparamos con una tabla que aplicamos merge de los resultados.
+
+Y determinamos que:
+
+*   La violencia familiar por ejemplo fue en aumento exponencialmente y luego disminuyó en el último año 2021.
+*   El robo de objetos ha ido disminuyendo considerablemente en los últimos años.
+*   El robo a negocio sin violencia disminuyó en los últimos 2 años.
+*   El fraude se mantuvo estable entre 2016-2020 pero disminuyó drásticamente en el último año 2021.
+*   Las amenazas fueron en aumento gradualmente, pero disminuyeron considerablemente el último año 2021.
+
+```python
+# asignamos las variables df6 y df7, sin embargo, esto no significa que sean parte de una secuencia donde existan DataFrames anteriores (df5, df4, etc.).
+df6, df7 = [x for _, x in df_casting.groupby(df_casting['ao_hechos'] == 2021)]
+g=df7.groupby('delito')['ao_hechos'].size().reset_index()
+res2021=g.sort_values("ao_hechos", ascending=False)
+res2021.head()
+
+df6, df7 = [x for _, x in df_casting.groupby(df_casting['ao_hechos'] == 2020)]
+g=df7.groupby('delito')['ao_hechos'].size().reset_index()
+res2020=g.sort_values("ao_hechos", ascending=False)
+res2020.head()
+
+df6, df7 = [x for _, x in df_casting.groupby(df_casting['ao_hechos'] == 2019)]
+g=df7.groupby('delito')['ao_hechos'].size().reset_index()
+res2019=g.sort_values("ao_hechos", ascending=False)
+res2019.head()
+
+df6, df7 = [x for _, x in df_casting.groupby(df_casting['ao_hechos'] == 2018)]
+g=df7.groupby('delito')['ao_hechos'].size().reset_index()
+res2018=g.sort_values("ao_hechos", ascending=False)
+res2018.head()
+
+df6, df7 = [x for _, x in df_casting.groupby(df_casting['ao_hechos'] == 2017)]
+g=df7.groupby('delito')['ao_hechos'].size().reset_index()
+res2017=g.sort_values("ao_hechos", ascending=False)
+res2017.head()
+
+df6, df7 = [x for _, x in df_casting.groupby(df_casting['ao_hechos'] == 2016)]
+g=df7.groupby('delito')['ao_hechos'].size().reset_index()
+res2016=g.sort_values("ao_hechos", ascending=False)
+res2016.head()
+
+data_frames = [res2016, res2017, res2018, res2019, res2020, res2021]
+df_resultados = reduce(lambda  left,right: pd.merge(left,right,on=['delito'],
+                                            how='outer'), data_frames)
+df_resultados.head()
+
+```
+#### 6.2.4 *¿Qué tipos de delitos se cometen por alcaldía?*
+```python
+#Agrupamos delitos por alcaldía de hechos
+df_casting.groupby('alcaldia_hechos').size()
+
+#Consultamos cada alcaldía para saber sus tipos de delito que se cometen por la misma
+df6, df7 = [x for _, x in df_casting.groupby(df_casting['alcaldia_hechos'] == 'ALVARO OBREGON')]
+df7.groupby('delito').size()
+
+df6, df7 = [x for _, x in df_casting.groupby(df_casting['alcaldia_hechos'] == 'AZCAPOTZALCO')]
+df7.groupby('delito').size()
+
+df6, df7 = [x for _, x in df_casting.groupby(df_casting['alcaldia_hechos'] == 'BENITO JUAREZ')]
+df7.groupby('delito').size()
+
+df6, df7 = [x for _, x in df_casting.groupby(df_casting['alcaldia_hechos'] == 'COYOACAN')]
+df7.groupby('delito').size()
+
+df6, df7 = [x for _, x in df_casting.groupby(df_casting['alcaldia_hechos'] == 'CUAJIMALPA DE MORELOS')]
+df7.groupby('delito').size()
+
+df6, df7 = [x for _, x in df_casting.groupby(df_casting['alcaldia_hechos'] == 'CUAUHTEMOC')]
+df7.groupby('delito').size()
+
+df6, df7 = [x for _, x in df_casting.groupby(df_casting['alcaldia_hechos'] == 'GUSTAVO A MADERO')]
+df7.groupby('delito').size()
+
+df6, df7 = [x for _, x in df_casting.groupby(df_casting['alcaldia_hechos'] == 'IZTACALCO')]
+df7.groupby('delito').size()
+
+df6, df7 = [x for _, x in df_casting.groupby(df_casting['alcaldia_hechos'] == 'IZTAPALAPA')]
+df7.groupby('delito').size()
+
+df6, df7 = [x for _, x in df_casting.groupby(df_casting['alcaldia_hechos'] == 'LA MAGDALENA CONTRERAS')]
+df7.groupby('delito').size()
+
+df6, df7 = [x for _, x in df_casting.groupby(df_casting['alcaldia_hechos'] == 'MIGUEL HIDALGO')]
+df7.groupby('delito').size()
+
+df6, df7 = [x for _, x in df_casting.groupby(df_casting['alcaldia_hechos'] == 'MILPA ALTA')]
+df7.groupby('delito').size()
+
+df6, df7 = [x for _, x in df_casting.groupby(df_casting['alcaldia_hechos'] == 'MIGUEL HIDALGO')]
+df7.groupby('delito').size()
+
+df6, df7 = [x for _, x in df_casting.groupby(df_casting['alcaldia_hechos'] == 'TLAHUAC')]
+df7.groupby('delito').size()
+
+df6, df7 = [x for _, x in df_casting.groupby(df_casting['alcaldia_hechos'] == 'TLALPAN')]
+df7.groupby('delito').size()
+
+df6, df7 = [x for _, x in df_casting.groupby(df_casting['alcaldia_hechos'] == 'VENUSTIANO CARRANZA')]
+df7.groupby('delito').size()
+
+df6, df7 = [x for _, x in df_casting.groupby(df_casting['alcaldia_hechos'] == 'XOCHIMILCO')]
+df7.groupby('delito').size()
+
+```
+
+#### 6.2.5 *¿Qué delitos han son más comúnes cada año?*
+
+
+*   Violencia familiar
+*   Robo de objetos
+*   Robo de negocio sin violencia
+```python
+df6, df7 = [x for _, x in df_casting.groupby(df_casting['ao_hechos'] == 2016)]
+g=df7.groupby('delito')['ao_hechos'].size().reset_index()
+res=g.sort_values("ao_hechos", ascending=False)
+res
+
+df6, df7 = [x for _, x in df_casting.groupby(df_casting['ao_hechos'] == 2017)]
+g=df7.groupby('delito')['ao_hechos'].size().reset_index()
+res=g.sort_values("ao_hechos", ascending=False)
+res
+
+df6, df7 = [x for _, x in df_casting.groupby(df_casting['ao_hechos'] == 2018)]
+g=df7.groupby('delito')['ao_hechos'].size().reset_index()
+res=g.sort_values("ao_hechos", ascending=False)
+res
+
+df6, df7 = [x for _, x in df_casting.groupby(df_casting['ao_hechos'] == 2019)]
+g=df7.groupby('delito')['ao_hechos'].size().reset_index()
+res=g.sort_values("ao_hechos", ascending=False)
+res
+
+df6, df7 = [x for _, x in df_casting.groupby(df_casting['ao_hechos'] == 2020)]
+g=df7.groupby('delito')['ao_hechos'].size().reset_index()
+res=g.sort_values("ao_hechos", ascending=False)
+res
+
+df6, df7 = [x for _, x in df_casting.groupby(df_casting['ao_hechos'] == 2021)]
+g=df7.groupby('delito')['ao_hechos'].size().reset_index()
+res=g.sort_values("ao_hechos", ascending=False)
+res
+
+```
+#### 6.2.6 *¿En qué horarios durante el día se cometen mayor número de algún tipo de delito?*
+```python
+# Primero extraemos la hora de la columna 'fecha_hechos':
+horas= pd.DatetimeIndex(df_casting['fecha_hechos']).hour
+
+# Ahora añadimos la columna 'hora_hechos' al dataframe:
+df_casting['hora_hechos']=horas
+df_casting.tail()
+
+# y hacemos un size para contar el número la frecuencia de delitos por hora (durante el perido 2016-2021). Al parecer, las 12 del día es la hora en la
+# que sueden más delitos. 
+df_casting.groupby('hora_hechos').size().sort_values(ascending=False)
+
+```
+## Descargamos un archivo csv con las columnas necesarias para mapear en el programa que desarrollamos con la API de Google Maps
+
+```python
+#Borramos las columnas que no nos servían mucho para mapear y nos concentramos más en la longitud y latitud
+df5=df_casting.drop(['mes_hechos',	'fecha_hechos',	'ao_inicio',	'mes_inicio',	'fecha_inicio', 'fiscalia',	'colonia_hechos',	'alcaldia_hechos',	'hora_hechos'], axis = 1)
+
+#Filtramos los delitos del último año
+df6, df7 = [x for _, x in df5.groupby(df5['ao_hechos'] == 2021)]
+df7
+
+#Agrupamos por delito para obtener el número de delitos por delito del 2021
+df7.groupby(['categoria_delito']).size()
+
+#Elegimos violación como ejemplo para mapear
+df8, df9 = [x for _, x in df7.groupby(df7['categoria_delito'] == 'VIOLACIÓN')]
+df9
+
+#Convertimos el DataFrame a un archivo .csv
+df9.to_csv('carpeta_de_invetigacion_FGJ_VIOLACION.csv')
+
+#Finalmente descargamos el archivo
+from google.colab import files
+files.download("carpeta_de_invetigacion_FGJ_VIOLACION.csv")
+```
+# Mapas
+```python
+!pip install -q plotly==5.1.0
+import plotly.graph_objects as go
+
+mapbox_access_token = 'pk.eyJ1IjoiYXZpbGFqdWxpb2MiLCJhIjoiY2tzNzBvYmswMDdndjJ1cGNoenltcHMwNiJ9.MJb7m3-Xqq6GEbEs6gz6UQ'
+
+fig = go.Figure(go.Scattermapbox(
+        lat=lat,
+        lon=lon,
+        mode='markers',
+        marker=go.scattermapbox.Marker(
+            size=9
+        ),
+        text=cat,
+))
+fig.update_layout(
+    autosize=True,
+    hovermode='closest',
+    mapbox=dict(
+        accesstoken=mapbox_access_token,
+        bearing=0,
+        center=dict(
+            lat=19.4303,
+            lon=99.1373
+        ),
+        pitch=0,
+        zoom=10
+    ),
+)
+
+fig.show(renderer='colab')
+
+df_map = df5.loc[df5["latitud"].notna() & (df5["ao_hechos"] == 2021)]
+
+lat = [str(lat) for lat in df_map["latitud"].to_list()]
+lon = [str(lon) for lon in df_map["longitud"].to_list()]
+cat = [str(lon) for lon in df_map["categoria_delito"].to_list()]
+```
