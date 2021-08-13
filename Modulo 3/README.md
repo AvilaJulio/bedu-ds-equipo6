@@ -74,6 +74,7 @@ df.tail(3)
 df.info()
 ```
 ![](img1.png)
+
 ![](img2.png)
 
 ## **5. Limpieza de datos**
