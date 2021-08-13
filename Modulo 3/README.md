@@ -154,6 +154,7 @@ df_sin_nan_5.isna().sum()
 
 # lat_long_alcaldias = pd.read_csv("https://datos.cdmx.gob.mx/dataset/bae265a8-d1f6-4614-b399-4184bc93e027/resource/e4a9b05f-c480-45fb-a62c-6d4e39c5180e/download/alcaldias.csv")
 
+![](img3.png)
 
 ```
 ### 5.4 Reseteando los índices
@@ -166,6 +167,7 @@ print(df_indice_reseteado.head(3))
 print('\n')
 print(df_indice_reseteado.tail(3))
 ```
+![](img4.png)
 
 ## 6. Transformación de datos
 
@@ -198,6 +200,8 @@ print(df_casting.dtypes)
 print('\n')
 df_casting.head(3)
 ```
+![](img5.png)
+
 ### 6.2 Contestando las preguntas de investigación
 #### 6.2.1 *¿Qué tipos de delitos se comete con mayor frecuencia?*
 ```python
@@ -218,8 +222,9 @@ df_casting
 # Y ahora si respondemos a la pregunta 1:
 pregunta_1 = df_casting.groupby('categoria_delito').size()
 pregunta_1.sort_values(ascending=False)
-
 ```
+![](img6.png)
+
 #### 6.2.2 *¿En qué alcaldías se comete el mayor número de delitos graves?*
 
 ```python
@@ -232,9 +237,9 @@ delitos_graves = df_casting.loc[df_casting['categoria_delito'].isin(['LESIONES D
 # y agrupamos por alcaldía: 
 pregunta_2 = delitos_graves.groupby('alcaldia_hechos').size()
 pregunta_2
-
-
 ```
+![](img7.png)
+
 #### 6.2.3 *¿Qué tipos de delito han mostrado un crecimiento y decrecimiento en los últimos años?*
 
 
@@ -286,8 +291,9 @@ data_frames = [res2016, res2017, res2018, res2019, res2020, res2021]
 df_resultados = reduce(lambda  left,right: pd.merge(left,right,on=['delito'],
                                             how='outer'), data_frames)
 df_resultados.head()
-
 ```
+![](img8.png)
+
 #### 6.2.4 *¿Qué tipos de delitos se cometen por alcaldía?*
 ```python
 #Agrupamos delitos por alcaldía de hechos
