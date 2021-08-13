@@ -153,10 +153,9 @@ df_sin_nan_5.isna().sum()
 # acuerdo a datos del gobierno de la CDMX: https://datos.cdmx.gob.mx/dataset/bae265a8-d1f6-4614-b399-4184bc93e027/resource/e4a9b05f-c480-45fb-a62c-6d4e39c5180e/download/alcaldias.csv
 
 # lat_long_alcaldias = pd.read_csv("https://datos.cdmx.gob.mx/dataset/bae265a8-d1f6-4614-b399-4184bc93e027/resource/e4a9b05f-c480-45fb-a62c-6d4e39c5180e/download/alcaldias.csv")
-
+```
 ![](img3.png)
 
-```
 ### 5.4 Reseteando los índices
 ```python
 # Reseteamos los indices, pues hemos eliminado algunas filas:
