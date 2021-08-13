@@ -73,6 +73,8 @@ df.tail(3)
 # Revisamos el tipo de datos de cada columna y si contienen NaN's:
 df.info()
 ```
+![](img1.png)
+![](img2.png)
 
 ## **5. Limpieza de datos**
 
