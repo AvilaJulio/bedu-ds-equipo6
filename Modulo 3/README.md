@@ -195,7 +195,7 @@ print(df_casting.dtypes)
 print('\n')
 df_casting.head(3)
 ```
-### 6.2 contestando las preguntas de investigación
+### 6.2 Contestando las preguntas de investigación
 #### 6.2.1 *¿Qué tipos de delitos se comete con mayor frecuencia?*
 ```python
 # Hacemos el conteo de la frecuencia de cada categoría de delito y ordenamos de manera ascendente: 
