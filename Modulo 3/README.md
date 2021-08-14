@@ -349,8 +349,8 @@ df7.groupby('delito').size()
 
 df6, df7 = [x for _, x in df_casting.groupby(df_casting['alcaldia_hechos'] == 'XOCHIMILCO')]
 df7.groupby('delito').size()
-
 ```
+![](img 624.png)
 
 #### 6.2.5 *¿Qué delitos son más comúnes cada año?*
 
@@ -387,8 +387,9 @@ df6, df7 = [x for _, x in df_casting.groupby(df_casting['ao_hechos'] == 2021)]
 g=df7.groupby('delito')['ao_hechos'].size().reset_index()
 res=g.sort_values("ao_hechos", ascending=False)
 res
-
 ```
+![](img625.png)
+
 #### 6.2.6 *¿En qué horarios durante el día se cometen mayor número de algún tipo de delito?*
 ```python
 # Primero extraemos la hora de la columna 'fecha_hechos':
@@ -427,3 +428,4 @@ df9.to_csv('carpeta_de_invetigacion_FGJ_VIOLACION.csv')
 from google.colab import files
 files.download("carpeta_de_invetigacion_FGJ_VIOLACION.csv")
 ```
+![](img626.png)
