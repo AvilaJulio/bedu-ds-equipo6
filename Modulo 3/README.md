@@ -48,5 +48,6 @@ La colección de datos se obtuvo del Portal de datos abietos del Gobierno de la 
 Esta base de datos contiene la información actualizada de las carpetas de investigación de la Fiscalía General de Justicia (FGJ) de la Ciudad de México a partir de enero de 2016. Las variables que contiene esta base son Carpetas de investigación de delitos a nivel de calle de la FGJ por Fiscalía, Agencia, Unidad de Investigación, fecha de apertura de la carpeta de investigación, delito, categoría de delito, calle, colonia, alcaldía, coordenadas, mes y año. Esta información se actualiza mensualmente.
 
 En este link
+- [Postwork 1](https://github.com/AvilaJulio/bedu-ds-equipo6/tree/main/Modulo%202/Postwork%201)
 ## **4. Análisis exploratorio de datos**
 
