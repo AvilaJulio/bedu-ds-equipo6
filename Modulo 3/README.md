@@ -350,7 +350,7 @@ df7.groupby('delito').size()
 df6, df7 = [x for _, x in df_casting.groupby(df_casting['alcaldia_hechos'] == 'XOCHIMILCO')]
 df7.groupby('delito').size()
 ```
-![](img 624.png)
+![](img624.png)
 
 #### 6.2.5 *¿Qué delitos son más comúnes cada año?*
 
