@@ -55,6 +55,6 @@ Donde se aborda, además de lo ya presentado aquí, los siguientes puntos:
 
 ### [**5. Limpieza de datos**](https://colab.research.google.com/drive/1395mJZA636HbZxJhbg7eRGa2aCNxuo7f#scrollTo=y6QHitbmwfd1 "**5. Limpieza de datos**")
 
-### [**6. Transformación de datos**](https://colab.research.google.com/drive/1395mJZA636HbZxJhbg7eRGa2aCNxuo7f#scrollTo=bsDt25LmI3ON "**6. Transformación de datos**")
-En el punto 6 se ofrece la solución a las preguntas planteadas.
+### [**6. Transformación de datos**](https://colab.research.google.com/drive/1395mJZA636HbZxJhbg7eRGa2aCNxuo7f#scrollTo=bsDt25LmI3ON "**6. Transformación de datos**"), en donde se ofrece la solución a las preguntas planteadas.
+### [**6. Uso de APIs**]()
 
