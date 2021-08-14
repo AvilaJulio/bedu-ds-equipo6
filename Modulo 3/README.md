@@ -58,5 +58,5 @@ Donde se aborda, además de lo ya presentado aquí, los siguientes puntos:
 
 ### [**6. Transformación de datos**](https://colab.research.google.com/drive/1395mJZA636HbZxJhbg7eRGa2aCNxuo7f#scrollTo=bsDt25LmI3ON "**6. Transformación de datos**")
 
-### [**7. Uso de APIs**]()
+### [**7. Uso de APIs**](https://colab.research.google.com/drive/1395mJZA636HbZxJhbg7eRGa2aCNxuo7f#scrollTo=eY9x0uj7bFfP&line=1&uniqifier=1)
 
